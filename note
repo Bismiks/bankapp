@@ -1,0 +1,162 @@
+localStorage - limited data stored permenantly  - setItem method is used for this storage purpose
+
+
+echo "# hi" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/Bismi478/hi.git
+git push -u origin main
+
+…or push an existing repository from the command line
+
+git remote add origin https://github.com/Bismi478/hi.git
+git branch -M main
+git push -u origin main
+
+
+                       ------------------------------- angular frontend ----------------------------
+
+
+
+
+                       ------------------------------- angular commands ----------------------------
+
+
+                       1. to create angular project - ng new project_name / ng new project_name --routing
+
+                       2. to run a angular Project - ng serve / ng serve --open
+
+                       3. to create component - ng g c component_name
+
+                       4. to create service - ng g s service_name
+
+                       5. to create directive - ng g d directive_name
+
+
+
+
+
+                      ------------------------------- angular basics ----------------------------
+
+
+
+1. modules. to import libraries - root Module - AppModule
+
+2.component- to get{html,css, ts}
+
+3. Data binding - data sharing b/w ts and html
+
+    3.1 One way Binding - data sharing only in one direction // data share from html to component
+
+        3.1.1 component to view
+
+            3.1.1.1 string Interpolation - syntax: {{variable name}}
+
+            3.1.1.2 Property binding - syntax: [attribute-name]="Property-name"
+
+        3.1.2 view to component
+
+            3.1.2.1 Event Binding -syntax: (Event-name)="function-call" #(click)="login()" //
+
+            3.1.2.2 Event Binding using $event - syntax: (Event-name)="function-call($event)"  
+
+                                                                                                        
+                                                                            # login(){
+                                                                            
+                                                                            #     // user entered acno and pswd
+                                                                            #     var accno = this.accno
+                                                                            #     var pass = this.pswd
+                                                                            #     let database = this.database
+                                                                            #     if(accno in database){
+
+                                                                            #     if(pass == database[accno]["password"]){
+
+                                                                            #         alert("Login successfull!!! ")
+                                                                            #         }
+
+                                                                            #         else{
+                                                                            #         alert("invalid passsword ")
+                                                                            #         }
+                                                                                
+                                                                            #     }
+                                                                            #     else{
+                                                                            #     alert("User does not exist!!! ")
+                                                                            #     }
+                                                                            # }
+
+         3.1.2.2 Template referencing variable -syntax: #referencing-variable-nm
+
+                                                                
+
+
+    3.2 Two way Binding - data sharing in both direction  { app.Module.ts file}  html um typescript um data share cheyyan easyest way 
+
+                3.2.1 Binding using ngModel - 
+                 
+                       1 - import FormsModule in AppModule(temp storage for 3rd party libraries) 
+
+                       2. syntax  :  [(ngModel)]="variable-nm" , variable-name should defined in ts file
+
+
+4. ngSubmit - to submit the form , syntax: (ngSubmit)="function-call()" // like onlick
+
+5. set path for an html page - app.routing.module.ts , syntax:{path,component} redirecting for one page to another
+
+6. Dependancy Injection - to share data b/w dependent classes ..................IMPORTANT ///1:20
+
+7. Angular Services 
+
+        why Servies ..? - used to  hold redentant data  // imp concept 
+
+8. Angular Forms-  
+
+        8.1 Template driven Forms - First design html file [ngModel]
+
+        8.2 Model Driven Forms -  First create model in .ts file                   
+                                                                                  
+             8.2.1 Reactive Forms - Add Validations to the forms (user enter cheyyunna input enter or submit 
+                                                                   cheyyunnathinu mumb ath crct ano ennu check cheyyunnath)
+                                  - import ReactiveFormsModule in AppModule, {Form group , form Array, form Control}
+
+                8.2.1.1 Validatiors 
+
+9. Angular Directives - To manipulate DOM
+        
+        9.1 Component Directives
+
+        9.2 Structure Directives - add/remove elements from DOM - syntax: *directive-name="condition"
+
+            9.2.1 ngIf - syntax : *ngIf = "condition"
+
+            9.2.2 ngFor - syntax: *ngFor = "let iterator-name of array-name" (ngFor Directive search in google )
+
+        9.3 Attribute directives - to lapply style class based on condition
+
+            9.3.1 In built - ngClass
+
+            9.3.2 user defined
+
+
+10. Local Storage 
+
+    JSON.stringify(this.database)  - this.database enna obj ine string ilek convert  cheyyan -  JSON.stringify
+
+    JSON.parse
+
+        10.1 setItem - to store data in local storage
+
+        10.2 getItem - to get data from local Storage
+
+        10.3 removeItem - to remove item from local Storage
+
+11. Angular  Pipes - to covert data to another format (pre defined search in google)
+
+12. Parent Child communication
+
+    12.1 parent to child - Input decorator
+
+    12.2 child to parent - Output decorator
+
+13. Attribute directives

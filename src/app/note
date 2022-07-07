@@ -1,0 +1,15 @@
+Angular front end
+----------------
+
+-> angular commands
+
+
+create angular project - ng new project_nm
+to run project - ng serve --open
+create component - ng g c comp_nm
+
+
+-> angular basics
+
+modules. to import libraries - root Module - AppModule
+component- to get{html,css, ts}

@@ -1,0 +1,140 @@
+<!-- As a link -->
+<nav class="navbar navbar-light bg-dark ">
+  <a class="navbar-brand  " href="#" style="color:rgb(85, 98, 237);"><b>&#169; HAFC Bank Pvt.Ltd </b></a>
+  <span class="quote text-light">Giving you freedom...</span>
+  <button (click)="logout()" class="btn btn-warning">Log Out</button>
+</nav>
+<h4
+  style="color: antiquewhite; font-family: Arial, Helvetica, sans-serif; text-align: center;padding-top: 20px;">
+  Welcome {{user}}</h4> <!-- string Interpolation-->
+<h4 style="color: white; ">Login Details are: {{loginDate|date:'fullDate'|uppercase}}</h4>
+<!--login details -->
+<a routerLink="/transaction">Transaction History</a>
+<button (click)="deletefromParent()" style="float: right; padding-right: 10px;" class="btn btn-danger">Delete</button>
+
+<!-- <hr> -->
+<!-- child sector -->
+<app-delete (onDelete)="onDelete($event)" (onCancel)="onCancel()" [item]=acno></app-delete>
+<div [ngClass]="acno? 'style1':'' " class="container col-md-12 mt-0">
+  <div class="d-flex justify-content-center h-100">
+    <div class="card">
+      <div class="card-header">
+        <h3 appHighlight class="text-center">Deposit Form</h3>
+
+      </div>
+      <div  class="card-body">
+        <form [formGroup]="depositForm" (ngSubmit)="deposit()">
+          <!--form il ngmodel work akan input il name declare cheyyanm {29 line} -->
+
+          <div class="input-group form-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fas fa-user"></i></span>
+            </div>
+            <input type="text" name="acno" formControlName="acno" class="form-control"
+              placeholder="Account number Please" id="login_acno" required> <!-- Property binding -->
+          </div>
+
+          <div *ngIf="this.depositForm.get('acno')?.touched && this.depositForm.get('acno')?.errors"
+            style="color: rgb(255, 59, 59);">Invalid Account number</div>
+
+
+          <div class="input-group form-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fas fa-key"></i></span>
+            </div>
+            <input type="password" name="password" formControlName="password" class="form-control"
+              placeholder="password" id="login_password" required> <!-- Event Binding using $event-->
+          </div>
+
+          <div *ngIf="this.depositForm.get('password')?.touched && this.depositForm.get('password')?.errors"
+            style="color: rgb(255, 59, 59);">Invalid password</div>
+
+
+          <div class="input-group form-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fas fa-key"></i></span>
+            </div>
+            <input type="text" name="amount" formControlName="amount" class="form-control" placeholder="amount"
+              id="login_amount" required> <!-- Event Binding using $event-->
+          </div>
+
+          <div *ngIf="this.depositForm.get('amount')?.touched && this.depositForm.get('amount')?.errors"
+            style="color: rgb(255, 59, 59);">Invalid amount</div>
+
+
+          <div class="form-group">
+
+            <input type="submit" value="Deposit" class="btn float-right login_btn " style="width:50%">
+            <!--Event Binding -->
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div [ngClass]="acno? 'style1':'' " class="container col-md-12 mt-0" style="padding-top: 30px;">
+  <div class="d-flex justify-content-center h-100">
+    <div class="card">
+      <div class="card-header">
+        <h3 appHighlight class="text-center">Withdrawal Form</h3>
+
+      </div>
+      <div class="card-body">
+
+        <form [formGroup]="withdrawForm" (ngSubmit)="withdraw()">
+          <!--form il ngmodel work akan input il name declare cheyyanm {29 line} -->
+
+          <div class="input-group form-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fas fa-user"></i></span>
+            </div>
+
+
+            <input type="text" name="acno" formControlName="acno" class="form-control"
+              placeholder="Account number Please" id="login_acno" required> <!-- Property binding -->
+
+          </div>
+
+          <div *ngIf="this.withdrawForm.get('acno')?.touched && this.withdrawForm.get('acno')?.errors"
+            style="color: rgb(255, 59, 59);">Invalid Account number</div>
+
+
+
+          <div class="input-group form-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fas fa-key"></i></span>
+            </div>
+
+            <input type="password" name="password" formControlName="password" class="form-control"
+              placeholder="password" id="login_password1" required> <!-- Event Binding using $event-->
+          </div>
+
+          <div *ngIf="this.withdrawForm.get('password')?.touched && this.withdrawForm.get('password')?.errors"
+            style="color: rgb(255, 59, 59);">Invalid password</div>
+
+          <div class="input-group form-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fas fa-key"></i></span>
+            </div>
+
+            <input type="text" name="amount" formControlName="amount" class="form-control" placeholder="amount"
+              id="login_amount" required> <!-- Event Binding using $event-->
+          </div>
+
+          <div *ngIf="this.withdrawForm.get('amount')?.touched && this.withdrawForm.get('amount')?.errors"
+            style="color: rgb(255, 59, 59);">Invalid Amount</div>
+
+          <div class="form-group">
+
+            <input type="submit" value="Withdraw" class="btn float-right login_btn " style="width:50%">
+            <!--Event Binding -->
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
